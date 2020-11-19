@@ -24,7 +24,7 @@
       </caroussel-slide>
       <caroussel-slide>
         <h3 class="projet_web">Projet Site CV VueJS</h3>
-        <a href="https://www.immo-bakoko.kellynkana.ovh/" rel="noopener" target="_blank"><img src="../pictures/Site CV.png" alt="site CV"/></a>
+        <a href="https://github.com/kesank/Site-Cv" rel="noopener" target="_blank"><img src="../pictures/Site CV.png" alt="site CV"/></a>
       </caroussel-slide>
     </caroussel>
   </div>
