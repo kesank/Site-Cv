@@ -5,7 +5,6 @@ import Code from '../views/Code.vue'
 import Cv from '../views/Cv.vue'
 import Projet from '../views/Projet.vue'
 import NotFound from '../views/NotFound.vue'
-import Mentions from '../views/Mentions.vue'
 
 
 Vue.use(VueRouter)
@@ -31,11 +30,7 @@ const routes = [
     name: 'cv',
     component: Cv
   },
-  {
-    path: '/mentions',
-    name: 'mentions',
-    component: Mentions
-  },
+  
   { path: '/404', component: NotFound },  
   { path: '*', redirect: '/404' }, 
 ]
