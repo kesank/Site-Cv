@@ -9,27 +9,29 @@
               <i v-if=" nightDay" @click="swip" class="fas fa-moon"></i>
               <i v-else @click="swip" class="fas fa-sun"></i>
           </span>
- -->
-          <div  class='topnav' ref="jedi">
-            <div id="pos">
-              <router-link class="navhover" to="/" >Home</router-link> 
-              <span> |</span>
-              <router-link class="navhover" to="/cv">cv</router-link>
-              <span> |</span>
-              <router-link class="navhover" to="/projet">Projet</router-link> 
-              <span> |</span>
-              <router-link class="navhover" to="/code">Code</router-link>
+  -->  
+            <div  class='topnav' ref="jedi">
+              <div id="pos">
+                <router-link class="navhover" to="/" >Home</router-link> 
+                <span> |</span>
+                <router-link class="navhover" to="/cv">cv</router-link>
+                <span> |</span>
+                <router-link class="navhover" to="/projet">Projet</router-link> 
+                <span> |</span>
+                <router-link class="navhover" to="/code">Code</router-link>
+              </div>
+              <div id="hamburger-button" @click="togg"><i class="fas fa-bars"></i></div>
             </div>
-            <div id="hamburger-button" @click="togg"><i class="fas fa-bars"></i></div>
-          </div>
+
       </div>
+     
       <div id="over" @click="scw">
           
       <router-view/>
          <div>
 
           <b-modal id="modal-1"  title="Mentions légales">
-              <div class="mentions lightbox">
+              <div class="mentions ">
                     <h2>Informations légales</h2>
                     <h3>1. Présentation du site.</h3>
                     <p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href="https://www.kellynkana.ovh/#/" rel="noopener">https://www.kellynkana.ovh/#/</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
@@ -94,11 +96,13 @@
       </div>
       <footer class="bottom-f">
         <div class="mentions-leg">
-          <span v-b-modal.modal-1>Mentions Légales</span>
+          <span  v-b-modal.modal-1>Mentions Légales</span>
         </div>
         <div class="icones">
+          <a href="https://www.whire.me/@kellynkana" target="_blank" rel="noopener"><img src="./pictures/Logo-whire-blanc.png"  alt="whire" /></a>
           <a href="https://github.com/kesank" target="_blank" rel="noopener"><img src="./pictures/1github.svg.png" alt="github"/></a>
           <a href="https://www.linkedin.com/in/kelly-nkana/?originalSubdomain=fr" target="_blank" rel="noopener"><img src="./pictures/linkedin.png"  alt="linkedin" /></a>
+
         </div>
 
       </footer>
@@ -116,13 +120,13 @@
         data(){
           return{
             showMenutrue:true,
-            nightDay:true
-    }
+/*             nightDay:true
+ */    }
 
         },
         methods: {
 
-          swip:function(){
+       /*    swip:function(){
             let app=document.getElementById('app');
             let pre=document.getElementById('presentation');
             let night=document.getElementsByClassName('nightbox');
@@ -139,7 +143,7 @@
 
               }
             }
-          },
+          }, */
           scw:function(){
             let menu=document.getElementById('pos');
             if(screen.width < 784){
@@ -147,17 +151,10 @@
                 this.showMenutrue=!this.showMenutrue
             }
           },
-         /*  hovlink:function(){
-                 let menu=document.getElementById('pos');
-                 console.log('lien lié au')
-                menu.classList.remove('activated');
-                this.showMenutrue=!this.showMenutrue
-          }, */
+
           togg: function(){
             screen.width;
             let menu=document.getElementById('pos');
-/*             let over=document.getElementById('over');
-            let nav=document.getElementById('nav'); */
             if(this.showMenutrue== true){
                 menu.classList.add('activated');
                 this.showMenutrue=!this.showMenutrue
