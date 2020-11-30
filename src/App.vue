@@ -26,8 +26,10 @@
       </div>
      
       <div id="over" @click="scw">
-          
-      <router-view/>
+<!--           <Scroll></Scroll>
+ -->      <router-view/>
+        
+
          <div>
 
           <b-modal id="modal-1"  title="Mentions légales">
@@ -116,7 +118,10 @@
 
 </style>
 <script>
+import Scroll from './components/Scroll'
+
   export default{
+    
         data(){
           return{
             showMenutrue:true,
@@ -124,6 +129,10 @@
  */    }
 
         },
+        components: {
+          Scroll
+        },
+
         methods: {
 
        /*    swip:function(){
