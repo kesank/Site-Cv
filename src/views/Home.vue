@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <h1>Kelly NKANA <i class="fas fa-mobile-alt"></i>Développeur Web et Mobile  <i class="fas fa-desktop"></i></h1>
+    <h1 class="contai">Kelly NKANA <i class="fas fa-mobile-alt"></i>             
+      <span class="typed-text">{{ typeValue }}</span>
+      <span class="cursor" :class="{'typing': typeStatus}">&nbsp;</span> <i class="fas fa-desktop"></i>
+    </h1>
     <h2>"Le Problème est toujours ce qui se trouve entre la chaise et le clavier"</h2>
      <div   v-if="!hovered"     
         >
@@ -11,7 +14,7 @@
           <img @mouseleave="hovered = false"  src="../pictures/masque2.png"
         alt="Kelly Nkana avec masque">
       </div>
-  
+
       <div class="flex">
             <div id="presentation" class="lightbox">
               <h2>Présentation</h2>
@@ -42,7 +45,7 @@
           <img src="../pictures/lang/laravel.png" alt="laravel">
           <img src="../pictures/lang/php.png" alt="php">
           <img src="../pictures/lang/git.png" alt="git">
-          <img src="../pictures/lang/react.png" alt="react">
+          <img src="../pictures/lang/native.png" alt="react">
           <img src="../pictures/lang/redux.png" alt="redux">
           <img src="../pictures/lang/vue.png" alt="vue">
           <img src="../pictures/lang/wordpress4.png" alt="word">
@@ -66,6 +69,14 @@ export default {
   data(){
     return{
       hovered:false,
+      typeValue: '',
+      typeStatus: false,
+      typeArray: ['DEVELOPPEUR WEB', 'DEVELOPPEUR MOBILE', 'DEVELOPPEUR BACK-END', 'DEVELOPPEUR FRONT-END',' DEVELOPPEUR PHP','DEVELOPPEUR JAVASCRIPT'],
+      typingSpeed: 200,
+      erasingSpeed: 100,
+      newTextDelay: 2000,
+      typeArrayIndex: 0,
+      charIndex: 0
 
     }
   },
@@ -86,9 +97,45 @@ export default {
           document.body.appendChild(fileLink)
           fileLink.click()
       })
+    },
+    typeText() {
+        if(this.charIndex < this.typeArray[this.typeArrayIndex].length) {
+          if(!this.typeStatus)
+            this.typeStatus = true;
+          this.typeValue += this.typeArray[this.typeArrayIndex].charAt(this.charIndex);
+          this.charIndex += 1;
+          setTimeout(this.typeText, this.typingSpeed);
+        }
+        else {
+          this.typeStatus = false;
+          setTimeout(this.eraseText, this.newTextDelay);
+        }
+      },
+      eraseText() {
+        if(this.charIndex > 0) {
+          if(!this.typeStatus)
+            this.typeStatus = true;
+          this.typeValue = this.typeArray[this.typeArrayIndex].substring(0, this.charIndex - 1);
+          this.charIndex -= 1;
+          setTimeout(this.eraseText, this.erasingSpeed);
+        }
+        else {
+          this.typeStatus = false;
+          this.typeArrayIndex += 1;
+          if(this.typeArrayIndex >= this.typeArray.length)
+            this.typeArrayIndex = 0;
+          setTimeout(this.typeText, this.typingSpeed + 1000);
+        }
+      }
+    },
+    created() {
+      setTimeout(this.typeText, this.newTextDelay + 200);
     }
-  }
+  
   
 
 }
 </script>
+<style lang="scss" scoped>
+  
+</style>

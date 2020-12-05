@@ -118,7 +118,6 @@
 
 </style>
 <script>
-import Scroll from './components/Scroll'
 
   export default{
     
@@ -129,9 +128,7 @@ import Scroll from './components/Scroll'
  */    }
 
         },
-        components: {
-          Scroll
-        },
+
 
         methods: {
 

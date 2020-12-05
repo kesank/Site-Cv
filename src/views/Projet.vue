@@ -75,7 +75,7 @@
               
           </div>  
           <div>
-                <a href="https://github.com/kesank/bakoko" rel="noopener" target="_blank"><img src="../pictures/bakoko.png" alt="site gestion donnée en laravel"/></a>
+                <a href="https://github.com/kesank/bakoko" rel="noopener" target="_blank"><img src="../pictures/immo-bakoko.png" alt="immo"/></a>
                 <b-button  @click="modalShow1 = !modalShow1">En savoir Plus  <i class="fas fa-chevron-circle-down"></i></b-button>
 
                 <b-modal  v-model="modalShow1">
